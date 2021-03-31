@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="dl.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="dl.png" rel="apple-touch-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <title>Coming Soon</title>
+</head>
+<body>
+    <div class="uc__wrapper">
+        <div class="uc__details">
+            <h1 class="title">Coming Soon!</h1>
+            <h3 class="intro">
+                We are working hard to give you a better experience.
+            </h3>
+            <p class="uc__description">
+                We are working hard on it & the site may go live very soon. We promise, it will be worth the wait!
+            </p>
+            <div class="uc__subscribe">
+                <h3>Get Notified When We Go Live</h3>
+                <div class="uc__form">
+                    <form method="post" autocomplete="off" name="google-sheet">
+                        <div class="tab-pane fade show active text-align form-new" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <input value="" name="Email" type="email" class="email" placeholder="Enter Your Email Address">
+                        <input type="submit" name="submit" class="submit" value="Get Notified">
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="uc__art">
+            <img src="under_construction.svg" alt="">
+        </div>
+    </div>
+      <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwkvJWulcZnHw7W_SPaSnQZDr_nWapl8nSBJJwh2zuHYvVJWNYeihJiPaZgJRi6frJtzg/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

@@ -8,6 +8,7 @@
     <link href="dl.png" rel="apple-touch-icon" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Coming Soon</title>
 </head>
 <body>
@@ -23,10 +24,12 @@
             <div class="uc__subscribe">
                 <h3>Get Notified When We Go Live</h3>
                 <div class="uc__form">
-                    <form method="post" autocomplete="off" name="google-sheet">
+                    <form method="post" autocomplete="off" name="Entry-sheet">
                         <div class="tab-pane fade show active text-align form-new" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <input value="" name="Email" type="email" class="email" placeholder="Enter Your Email Address">
+                        <input value="" name="email" type="email" class="email" placeholder="Enter Your Email Address">
+                        <div class="field">
                         <input type="submit" name="submit" class="submit" value="Get Notified">
+                    </div>
                     </div>
                     </form>
                 </div>
@@ -37,13 +40,13 @@
         </div>
     </div>
       <script>
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbwkvJWulcZnHw7W_SPaSnQZDr_nWapl8nSBJJwh2zuHYvVJWNYeihJiPaZgJRi6frJtzg/exec'
-            const form = document.forms['google-sheet']
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbysd4ur9dRLiq77Sgbkki1cgmydgO5NILuUco3yCcFmMfpObl5lhd0DjMiQAEPLLAM3/exec'
+            const form = document.forms['Entry-sheet']
           
             form.addEventListener('submit', e => {
               e.preventDefault()
               fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .then(response => swal({title: "Thank You !",text: "Your Email has been recived!",icon: "success",button: "OK",}) )
                 .catch(error => console.error('Error!', error.message))
             })
           </script>
